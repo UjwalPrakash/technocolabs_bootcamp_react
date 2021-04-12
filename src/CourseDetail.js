@@ -13,26 +13,26 @@ const CourseDetail = () => {
     const isPurchased = true;
 
     let [courseData, setCourseData] = useState({
-        isLoaded : false,
-        data : null
+        isLoaded : true,
+        data : api_course_detail
     });
 
-    useEffect( () => {
-        if(!courseData.isLoaded){
-            fetch("http://localhost/api/course-detail.json")
-            .then( response => {
-                console.log(response);
-                return response.json();
-            })
-            .then( result => {
-                setCourseData({
-                    isLoaded : true,
-                    data : result
-                });
-                console.log(result);
-            });
-        }
-    });
+    // useEffect( () => {
+    //     if(!courseData.isLoaded){
+    //         fetch("http://localhost/api/course-detail.json")
+    //         .then( response => {
+    //             console.log(response);
+    //             return response.json();
+    //         })
+    //         .then( result => {
+    //             setCourseData({
+    //                 isLoaded : true,
+    //                 data : result
+    //             });
+    //             console.log(result);
+    //         });
+    //     }
+    // });
 
     const CourseDetailForPurchased = () => {
         if(isPurchased){
@@ -46,7 +46,7 @@ const CourseDetail = () => {
         return (
             <div>
                 <Header />
-                <Title data={courseData.course_name}/>
+                <Title data={courseData.data.course_name}/>
     
                 {/* <!-- Intro Section --> */}
                 <section class="intro-section-two">
