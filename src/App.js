@@ -23,6 +23,9 @@ const App = () => {
         <Route path="/">
           <LandingPage />
         </Route>
+        <Route path="/searchresult/:courseId">
+          <CourseDetail />
+        </Route>
       </Switch>
     </Router>
   );
